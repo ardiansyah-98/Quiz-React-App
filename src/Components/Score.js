@@ -3,11 +3,12 @@ import '../App.css'
  
 class Score extends Component {
     render() {
-        const { score, onNextQuestion } = this.props;
+        const { score } = this.props;
  
         return (
             <div>
                 <h2>Results</h2>
+                <h3>swdsad</h3>
                 <h4>Your score: {score}</h4>
             </div>
         );
