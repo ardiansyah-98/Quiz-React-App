@@ -1,79 +1,87 @@
 
-// App.js
- 
-import React, { Component } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Question from "./Components/Question";
-import qBank from "./Components/QuestionData";
+import QnA from "./Components/QuestionData";
 import Score from "./Components/Score";
-import "./App.css";
- 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            questionBank: qBank,
-            currentQuestion: 0,
-            selectedOption: "",
-            score: 0,
-            quizEnd: false,
-        };
+import React, { useState } from 'react';
+import './App.css';
+import Question from "./Components/Question";
+
+function App() {
+  
+  
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [currentScore, setScore] = useState(0);
+  const [showResults, setShowResults] = useState(false);
+  const [quizEnd,setQuizEnd]= useState(false);
+
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+  };
+
+  const handleNextClick = () => {
+    if (currentQuestionIndex < QnA.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setSelectedOption(null);
+    } else {
+      setShowResults(true);
+      setQuizEnd(true);
     }
- 
-    handleOptionChange = (e) => {
-        this.setState({ selectedOption: e.target.value });
-    };
- 
-    handleFormSubmit = (e) => {
-        e.preventDefault();
-        this.checkAnswer();
-        this.handleNextQuestion();
-    };
- 
-    checkAnswer = () => {
-        const { questionBank, currentQuestion, selectedOption, score } = this.state;
-        if (selectedOption === questionBank[currentQuestion].answer) {
-            this.setState((prevState) => ({ score: prevState.score + 1 }));
-        }
-    };
- 
-    handleNextQuestion = () => {
-        const { questionBank, currentQuestion } = this.state;
-        if (currentQuestion + 1 < questionBank.length) {
-            this.setState((prevState) => ({
-                currentQuestion: prevState.currentQuestion + 1,
-                selectedOption: "",
-            }));
-        } else {
-            this.setState({
-                quizEnd: true,
-            });
-        }
-    };
- 
-    render() {
-        const { questionBank, currentQuestion, selectedOption, score, quizEnd } =
-            this.state;
-        return (
-            <div className="App d-flex flex-column align-items-center justify-content-center">
-                <h1 className="app-title">QUIZ APP</h1>
-                {!quizEnd ? (
-                    <Question
-                        question={questionBank[currentQuestion]}
-                        selectedOption={selectedOption}
-                        onOptionChange={this.handleOptionChange}
-                        onSubmit={this.handleFormSubmit}
-                    />
-                ) : (
-                    <Score
-                        score={score}
-                        onNextQuestion={this.handleNextQuestion}
-                        className="score"
-                    />
-                )}
-            </div>
-        );
+  };
+
+  const handlePrevClick = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1);
+      setSelectedOption(null);
+      setShowResults(false);
     }
+  };
+
+  const calculateResultClass = (option) => {
+    if (showResults) {
+      if (option === QnA[currentQuestionIndex].answer) {
+        setScore(currentScore + 1);        
+        return currentScore;
+      } else if (option === selectedOption) {
+        return 'incorrect';
+      }
+    }
+    return '';
+  };
+
+  return (
+    <div className="App">
+      <h1>Quiz App</h1>
+      <div className="question-container">
+        {showResults ? (
+        //   <div className="result">
+        //     {selectedOption === QnA[currentQuestionIndex].answer
+        //       ? currentScore
+        //       : 'Incorrect!'}
+        //   </div>
+        <Score
+                        score={currentScore}
+                         className="score"
+                    />
+        ) : ( <Question
+            
+                currentQuestionIndex={currentQuestionIndex}
+                handleOptionClick={handleOptionClick}
+                calculateResultClass={calculateResultClass}
+                QnA={QnA}
+        />
+          
+        )}
+        <div className="button-container">
+          {currentQuestionIndex > 0 && (
+            <button onClick={handlePrevClick}>Previous</button>
+          )}
+          <button onClick={handleNextClick}>
+            {showResults ? 'Finish' : 'Next'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
- 
+
 export default App;
