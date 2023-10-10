@@ -1,18 +1,16 @@
 
-// QuestionBank.js
- 
-const qBank = [
+const QnA = [
     {
         id: 1,
         question: "What is the capital of Haryana?",
         options: ["Yamunanagar", "Panipat", "Gurgaon", "Chandigarh"],
-        answer: "Chandigarh",
+        answer: "Yamunanagar",
     },
     {
         id: 2,
         question: "What is the capital of Punjab?",
         options: ["Patiala", "Ludhiana", "Amritsar", "Chandigarh"],
-        answer: "Chandigarh",
+        answer: "Patiala",
     },
     {
         id: 3,
@@ -24,14 +22,14 @@ const qBank = [
         id: 4,
         question: "What is the capital of Uttarakhad?",
         options: ["Roorkee", "Haridwar", "Dehradun", "Nanital"],
-        answer: "Dehradun"
+        answer: "Roorkee"
     },
     {
         id: 5,
         question: "What is capital of Uttar Pradesh?",
         options: ["GB Nagar", "Lucknow", "Prayagraj", "Agra"],
-        answer: "Lucknow"
+        answer: "GB Nagar"
     },
 ]
  
-export default qBank;
+export default QnA;
