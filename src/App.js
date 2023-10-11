@@ -20,6 +20,7 @@ function App() {
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     checkAnswer(option);
+    changeBackgroundColor(option);
   };
 
   const handleNextClick = () => {
@@ -62,10 +63,12 @@ function App() {
   var isCorrect= option === QnA[currentQuestionIndex].answer;
     if (isCorrect) {
       setScore(currentScore + 1);
-      playSoundEffect(isCorrect);        
+      playSoundEffect(isCorrect);
+      changeBackgroundColor(isCorrect);        
       return currentScore;
     }else{
       playSoundEffect(!1);
+      changeBackgroundColor(!1);
     }
          };
 
@@ -91,6 +94,22 @@ function App() {
      
           
         };
+
+  const changeBackgroundColor = (isCorrect) => {
+    const questionList = document.querySelectorAll('.question-container li');
+      questionList.forEach((option) => {
+        if (isCorrect) {
+          if (option.textContent === QnA[currentQuestionIndex].answer) {
+              option.style.backgroundColor = 'lightgreen';
+          }
+        } else {
+          if (option.textContent === selectedOption) {
+              option.style.backgroundColor = 'tomato';
+          }
+        }
+      });
+  };
+              
 
   return (
     <div className="App">
