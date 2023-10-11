@@ -3,6 +3,7 @@ import Score from "./Components/Score";
 import React, { useState , useRef} from 'react';
 import './App.css';
 import Question from "./Components/Question";
+import Home from "./Components/Home";
 import correctSound from './Sounds/correct.mp3'; 
 import wrongSound from './Sounds/wrong.mp3'; 
 
@@ -15,8 +16,18 @@ function App() {
   const [currentScore, setScore] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [quizEnd,setQuizEnd]= useState(false);
+  const [quizStarted, setQuizStarted] = useState(false);
   //const [reset,Quizreset]= useState(false);
 
+  const handlePlayNowClick = () => {
+    setCurrentQuestionIndex(0);
+    setSelectedOption(null);
+    setScore(0);
+    setQuizEnd(false);
+    setQuizStarted(true);
+  };
+
+ 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     checkAnswer(option);
@@ -28,6 +39,7 @@ function App() {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setSelectedOption(null);
       setQuizEnd(false);
+      changeBackgroundColor(true);
     } else {
       setShowResults(true);
       setQuizEnd(true);
@@ -97,26 +109,38 @@ function App() {
 
   const changeBackgroundColor = (isCorrect) => {
     const questionList = document.querySelectorAll('.question-container li');
+    
+      // Clear the background color for all options
       questionList.forEach((option) => {
-        if (isCorrect) {
-          if (option.textContent === QnA[currentQuestionIndex].answer) {
-              option.style.backgroundColor = 'lightgreen';
-          }
-        } else {
-          if (option.textContent === selectedOption) {
-              option.style.backgroundColor = 'tomato';
-          }
-        }
+          option.style.backgroundColor = '';
       });
+        
+          if (isCorrect) {
+            questionList.forEach((option) => {
+              if (option.textContent === QnA[currentQuestionIndex].answer) {
+                option.style.backgroundColor = 'lightgreen';
+              }
+            });
+          } else {
+            questionList.forEach((option) => {
+              if (option.textContent === selectedOption) {
+                option.style.backgroundColor = 'tomato';
+              }
+            });
+          }
   };
-              
+        
+  const startQuiz = () => {
+    setQuizStarted(true);
+  };            
 
   return (
     <div className="App">
       <h1>Quiz App</h1>
       <div className="question-container">
       <audio ref={audioRef}></audio>
-        {quizEnd ? (
+       {quizStarted ? (
+        quizEnd ? (
                   
                   <Score
                         score={currentScore}
@@ -126,18 +150,20 @@ function App() {
                          currentQuestionIndex={currentQuestionIndex+1}
 
                     />
-        ) : ( <Question
-                currentQuestionIndex={currentQuestionIndex}
-                handleOptionClick={handleOptionClick}
-                calculateResultClass={calculateResultClass}
-                QnA={QnA}
-                prevClick={handlePrevClick}
-                nextClick={handleNextClick}
-                selectedOption={selectedOption} 
-        />
-          
-        )}
-        
+        ) : (
+          <Question
+            currentQuestionIndex={currentQuestionIndex}
+            handleOptionClick={handleOptionClick}
+            calculateResultClass={calculateResultClass}
+            QnA={QnA}
+            prevClick={handlePrevClick}
+            nextClick={handleNextClick}
+            selectedOption={selectedOption}
+          />
+        )
+      ) : (
+        <Home startQuiz={startQuiz} playNow={handlePlayNowClick} />
+      )}
         
       </div>
     </div>
