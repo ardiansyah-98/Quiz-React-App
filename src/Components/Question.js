@@ -1,3 +1,4 @@
+
 import React, {Component} from "react";
 
  
@@ -10,15 +11,14 @@ class Question extends Component{
             <h2>Question {currentQuestionIndex + 1}</h2>
             <p>{QnA[currentQuestionIndex].question}</p>
             <ul>
-              {QnA[currentQuestionIndex].options.map((option, index) => (
+            {QnA[currentQuestionIndex].options.map((option, index) => (
                 <li
                   key={index}
-                  className={calculateResultClass(option)}
+                  className={calculateResultClass(option) + (option === this.props.selectedOption ? ' selected' : '')}
                   onClick={() => handleOptionClick(option)}
                 >
                   {option}
                 </li>
-                
               ))}
             </ul>
             <div className="button-container">

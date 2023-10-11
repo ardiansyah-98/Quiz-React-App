@@ -61,6 +61,10 @@ li {
   border-radius: 5px;
 }
 
+li.selected {
+  background-color: skyblue;
+}
+
 li.correct {
   background-color: lightgreen;
 }
