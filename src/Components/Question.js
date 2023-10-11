@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-
+import '../App.css';
  
 class Question extends Component{
     render() {
@@ -8,6 +8,7 @@ class Question extends Component{
         return(
             <div>
             <h2>Question {currentQuestionIndex + 1}</h2>
+            <img src={QnA[currentQuestionIndex].image} alt="My Image" className="image-class"/>
             <p>{QnA[currentQuestionIndex].question}</p>
             <ul>
               {QnA[currentQuestionIndex].options.map((option, index) => (

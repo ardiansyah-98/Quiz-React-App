@@ -3,8 +3,8 @@ import Score from "./Components/Score";
 import React, { useState , useRef} from 'react';
 import './App.css';
 import Question from "./Components/Question";
-import correctSound from './Sounds/correct.mp3'; // Import the correct sound effect
-import wrongSound from './Sounds/wrong.mp3'; // Import the wrong sound effect
+import correctSound from './Sounds/correct.mp3'; 
+import wrongSound from './Sounds/wrong.mp3'; 
 
 
 function App() {
