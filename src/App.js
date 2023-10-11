@@ -12,6 +12,7 @@ function App() {
   const [currentScore, setScore] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [quizEnd,setQuizEnd]= useState(false);
+  const [reset,Quizreset]= useState(false);
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
@@ -65,12 +66,16 @@ function App() {
   const resetQuiz = () => {
     setCurrentQuestionIndex(0);
     setScore(0);
+    Quizreset(true);
+    console.log(currentQuestionIndex);
+    window.location.reload(true);
           
         };
 
   const homeQuiz = () => {
     setCurrentQuestionIndex(0);
-     setScore(0);
+    setScore(0);
+     
           
         };
 
@@ -78,8 +83,9 @@ function App() {
     <div className="App">
       <h1>Quiz App</h1>
       <div className="question-container">
+
         {quizEnd ? (
-        
+                  
                   <Score
                         score={currentScore}
                          className="score"
@@ -99,14 +105,8 @@ function App() {
         />
           
         )}
-        {/* <div className="button-container">
-          {currentQuestionIndex > 0 && (
-            <button onClick={handlePrevClick}> {quizEnd ? 'Try again' : 'Previous'}</button>
-          )}
-          <button onClick={handleNextClick}>
-            {quizEnd ? 'Finish' : 'Next'}
-          </button>
-        </div> */}
+        
+        
       </div>
     </div>
   );
