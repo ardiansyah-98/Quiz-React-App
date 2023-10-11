@@ -114,6 +114,7 @@ function App() {
                 QnA={QnA}
                 prevClick={handlePrevClick}
                 nextClick={handleNextClick}
+                selectedOption={selectedOption} 
         />
           
         )}

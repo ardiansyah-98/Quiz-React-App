@@ -14,7 +14,7 @@ class Question extends Component{
               {QnA[currentQuestionIndex].options.map((option, index) => (
                 <li
                   key={index}
-                  className={calculateResultClass(option)}
+                  className={calculateResultClass(option)+ (option === this.props.selectedOption ? ' selected' : '')}
                   onClick={() => handleOptionClick(option)}
                 >
                   {option}
