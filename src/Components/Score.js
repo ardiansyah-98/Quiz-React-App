@@ -3,13 +3,19 @@ import '../App.css'
  
 class Score extends Component {
     render() {
-        const { score } = this.props;
+        const { score, tryagain, finish ,currentQuestionIndex} = this.props;
  
         return (
             <div>
                 <h2>Results</h2>
-                <h4>Your score: {score}</h4>
+                <h4>Your score: {score}/{currentQuestionIndex}</h4>
+                <div className="button-container">
+                    <button onClick={tryagain}>Try again</button>
+                    <button onClick={finish}>Finish</button>
+                </div>
             </div>
+
+            
         );
     }
 }

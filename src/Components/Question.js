@@ -3,7 +3,7 @@ import React, {Component} from "react";
  
 class Question extends Component{
     render() {
-        const {currentQuestionIndex, handleOptionClick, calculateResultClass, QnA} = this.props;
+        const {currentQuestionIndex, handleOptionClick, calculateResultClass, QnA,prevClick,nextClick } = this.props;
  
         return(
             <div>
@@ -21,6 +21,14 @@ class Question extends Component{
                 
               ))}
             </ul>
+            <div className="button-container">
+          {currentQuestionIndex > 0 && (
+            <button onClick={prevClick}>Previous</button>
+          )}
+          <button onClick={nextClick}>
+            Next
+          </button>
+        </div>
           </div>
 
           

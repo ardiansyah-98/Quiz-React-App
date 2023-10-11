@@ -26,6 +26,7 @@ function App() {
     } else {
       setShowResults(true);
       setQuizEnd(true);
+      //setScore(0);
     }
   };
 
@@ -34,7 +35,11 @@ function App() {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
       setSelectedOption(null);
       setShowResults(false);
+    }else{
+      //setScore(0);
+      //setCurrentQuestionIndex(0);
     }
+
   };
 
   var calculateResultClass = (option) => {
@@ -57,15 +62,31 @@ function App() {
     }
          };
 
+  const resetQuiz = () => {
+    setCurrentQuestionIndex(0);
+    setScore(0);
+          
+        };
+
+  const homeQuiz = () => {
+    setCurrentQuestionIndex(0);
+     setScore(0);
+          
+        };
+
   return (
     <div className="App">
       <h1>Quiz App</h1>
       <div className="question-container">
         {quizEnd ? (
         
-        <Score
+                  <Score
                         score={currentScore}
                          className="score"
+                         tryagain={resetQuiz}
+                         finish={homeQuiz}
+                         currentQuestionIndex={currentQuestionIndex+1}
+
                     />
         ) : ( <Question
             
@@ -73,17 +94,19 @@ function App() {
                 handleOptionClick={handleOptionClick}
                 calculateResultClass={calculateResultClass}
                 QnA={QnA}
+                prevClick={handlePrevClick}
+                nextClick={handleNextClick}
         />
           
         )}
-        <div className="button-container">
+        {/* <div className="button-container">
           {currentQuestionIndex > 0 && (
-            <button onClick={handlePrevClick}>Previous</button>
+            <button onClick={handlePrevClick}> {quizEnd ? 'Try again' : 'Previous'}</button>
           )}
           <button onClick={handleNextClick}>
             {quizEnd ? 'Finish' : 'Next'}
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
