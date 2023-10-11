@@ -3,7 +3,7 @@ import React, {Component} from "react";
  
 class Question extends Component{
     render() {
-        const {currentQuestionIndex, handleOptionClick, calculateResultClass, QnA,onPrevQuestion,onNextQuestion} = this.props;
+        const {currentQuestionIndex, handleOptionClick, calculateResultClass, QnA} = this.props;
  
         return(
             <div>

@@ -1,4 +1,3 @@
-
 import QnA from "./Components/QuestionData";
 import Score from "./Components/Score";
 import React, { useState } from 'react';
@@ -10,23 +9,22 @@ function App() {
   
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
-  var [currentScore, setScore] = useState(0);
-  //const [showResults, setShowResults] = useState(false);
+  const [currentScore, setScore] = useState(0);
+  const [showResults, setShowResults] = useState(false);
   const [quizEnd,setQuizEnd]= useState(false);
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
-    if (option === QnA[currentQuestionIndex].answer) {
-      setScore(currentScore + 1); }   
-    //checkAnswer(option);
+    checkAnswer(option);
   };
 
   const handleNextClick = () => {
     if (currentQuestionIndex < QnA.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setSelectedOption(null);
+      setQuizEnd(false);
     } else {
-      //setShowResults(true);
+      setShowResults(true);
       setQuizEnd(true);
     }
   };
@@ -35,20 +33,29 @@ function App() {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
       setSelectedOption(null);
-      setQuizEnd(false);
+      setShowResults(false);
     }
   };
 
   var calculateResultClass = (option) => {
+    if (quizEnd) {
       if (option === QnA[currentQuestionIndex].answer) {
         setScore(currentScore + 1);        
-        return 'WTF';
+        return currentScore;
       } else if (option === selectedOption) {
         return 'incorrect';
       }
-    
-    //return '';
+    }
+    return '';
   };
+
+ var checkAnswer = (option) => {
+ 
+    if (option === QnA[currentQuestionIndex].answer) {
+      setScore(currentScore + 1);        
+      return currentScore;
+    }
+         };
 
   return (
     <div className="App">
@@ -58,7 +65,7 @@ function App() {
         
         <Score
                         score={currentScore}
-                         
+                         className="score"
                     />
         ) : ( <Question
             

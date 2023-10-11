@@ -8,7 +8,6 @@ class Score extends Component {
         return (
             <div>
                 <h2>Results</h2>
-                <h3>swdsad</h3>
                 <h4>Your score: {score}</h4>
             </div>
         );

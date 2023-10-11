@@ -3,7 +3,7 @@ const QnA = [
     {
         id: 1,
         question: "What is the capital of Haryana?",
-        options: ["Yamunanagar", "Panipat", "Gurgaon", "Chandigarh"],
+        options: ["Yamunanagar", "Panipats", "Gurgaon", "Chandigarh"],
         answer: "Yamunanagar",
     },
     {
