@@ -15,7 +15,7 @@ class Home extends Component{
           <p className="header-text">Play now and keep learning</p>
         </div>
         <div className="button-container">
-          <button  onClick={playNow}>Play Now</button>
+          <button  className= "button-home" onClick={playNow}>Play Now</button>
         </div>
       </header>
     </div>

@@ -6,7 +6,10 @@ import Question from "./Components/Question";
 import Home from "./Components/Home";
 import correctSound from './Sounds/correct.mp3'; 
 import wrongSound from './Sounds/wrong.mp3'; 
+import JSConfetti from 'js-confetti';
+import { useEffect } from 'react';
 
+const jsConfetti = new JSConfetti()
 
 function App() {
   
@@ -126,7 +129,17 @@ function App() {
         
   const startQuiz = () => {
     setQuizStarted(true);
-  };            
+  };
+
+  const addConfettiIfNeeded = () => {
+    if (currentScore === QnA.length) {
+      jsConfetti.addConfetti();
+    }
+  };
+
+  useEffect(() => {
+    addConfettiIfNeeded();
+  }, [currentScore]); 
 
   return (
    
@@ -141,6 +154,7 @@ function App() {
                         score={currentScore}
                          className="score"
                          tryagain={resetQuiz}
+                         
                          //finish={homeQuiz}
                          currentQuestionIndex={currentQuestionIndex+1}
 
@@ -157,6 +171,7 @@ function App() {
             
           />
         )}
+        {addConfettiIfNeeded()}
         </div>
         </div>
       ) : (
