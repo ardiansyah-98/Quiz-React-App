@@ -39,7 +39,7 @@ function App() {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setSelectedOption(null);
       setQuizEnd(false);
-      changeBackgroundColor(true);
+      changeBackgroundColor(false);
     } else {
       setShowResults(true);
       setQuizEnd(true);
@@ -63,7 +63,7 @@ function App() {
     if (quizEnd) {
       if (option === QnA[currentQuestionIndex].answer) {
         setScore(currentScore + 1);        
-        return currentScore;
+        return 'correct';
       } else if (option === selectedOption) {
         return 'incorrect';
       }
@@ -121,13 +121,7 @@ function App() {
                 option.style.backgroundColor = 'lightgreen';
               }
             });
-          } else {
-            questionList.forEach((option) => {
-              if (option.textContent === selectedOption) {
-                option.style.backgroundColor = 'tomato';
-              }
-            });
-          }
+          } 
   };
         
   const startQuiz = () => {
