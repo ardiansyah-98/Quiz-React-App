@@ -15,7 +15,7 @@ class Question extends Component{
               <div class="text">{QnA[currentQuestionIndex].clue}</div>
             </div>
           </div>
-            <p>{QnA[currentQuestionIndex].question}</p>
+            <h2>{QnA[currentQuestionIndex].question}</h2>
             <ul>
               {QnA[currentQuestionIndex].options.map((option, index) => (
                 <li
