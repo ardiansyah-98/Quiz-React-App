@@ -12,6 +12,7 @@ const QnA = [
         question: "What country has the highest life expectancy",
         options: ["Hong Kong", "China", "Japan", "Russia"],
         answer: "Hong Kong",
+        clue:"This country has a flower on their flag. The color of their flag is red."
     },
     {
         id: 2,
@@ -19,27 +20,31 @@ const QnA = [
         question: "Who should you do if a killer decides to camps the person on the hook during a 5 generator?",
         options: ["Spectate", "Keep repairing the generator", "Trade", "Open chest"],
         answer: "Keep repairing the generator",
+        clue:"This country has a flower on their flag. The color of their flag is red."
     },
     {
         id: 3,
         image:q3,
         question: "Which of these killers Newt usually play?",
         options: ["Huntress & Hillbilly", "Trapper & Wraith", "Doctor & Hag", "Nurse"],
-        answer: "Doctor & Hag"
+        answer: "Doctor & Hag",
+        clue:"This country has a flower on their flag. The color of their flag is red."
     },
     {
         id: 4,
         image:q4,
         question: "Which of these killers like to basement camp?",
         options: ["Ghostface", "Trapper", "Trickster", "None"],
-        answer: "Trapper"
+        answer: "Trapper",
+        clue:"This country has a flower on their flag. The color of their flag is red."
     },
     {
         id: 5,
         image:q5,
         question: "What is ghostface main power in Dead By Daylight? (WAZZZZUPP)",
         options: ["Midnight shroud", "Stalking", "Staring", "Teleportation"],
-        answer: "Midnight shroud"
+        answer: "Midnight shroud",
+        clue:"This country has a flower on their flag. The color of their flag is red."
     },
 ]
  
