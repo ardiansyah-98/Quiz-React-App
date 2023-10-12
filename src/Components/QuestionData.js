@@ -1,50 +1,50 @@
-import q1 from '../Images/R.jfif'; 
-import q3 from '../Images/killers.jpg'; 
-import q2 from '../Images/camping.jpg'; 
-import q4 from '../Images/Dead-by-daylight-killers.jpg'; 
-import q5 from '../Images/ghostface2.jpg'; 
+import q1 from '../Images/the-great-wall-of-china.jpg'; 
+import q2 from '../Images/US-presidents.jpg'; 
+import q3 from '../Images/gold-3300.jpg'; 
+import q4 from '../Images/romeojuliet.jpg'; 
+import q5 from '../Images/bluetooth.jpg'; 
 
 
 const QnA = [
     {
         id: 1,
         image:q1,
-        question: "What country has the highest life expectancy",
-        options: ["Hong Kong", "China", "Japan", "Russia"],
-        answer: "Hong Kong",
-        clue:"This country has a flower on their flag. The color of their flag is red."
+        question: "The Great Wall of China is a famous landmark. How long is it approximately?",
+        options: ["5,000 kilometers", "8,850 kilometers", "13,170 kilometers", "18,500 kilometers"],
+        answer: "8,850 kilometers",
+        clue:"It's one of the most extensive architectural wonders in the world."
     },
     {
         id: 2,
         image:q2,
-        question: "Who should you do if a killer decides to camps the person on the hook during a 5 generator?",
-        options: ["Spectate", "Keep repairing the generator", "Trade", "Open chest"],
-        answer: "Keep repairing the generator",
-        clue:"This country has a flower on their flag. The color of their flag is red."
+        question: "Who was the first President of the United States?",
+        options: ["Thomas Jefferson", "Benjamin Franklin", "George Washington", "John Adams"],
+        answer: "George Washington",
+        clue:"He is often referred to as the \"Father of His Country.\""
     },
     {
         id: 3,
         image:q3,
-        question: "Which of these killers Newt usually play?",
-        options: ["Huntress & Hillbilly", "Trapper & Wraith", "Doctor & Hag", "Nurse"],
-        answer: "Doctor & Hag",
-        clue:"This country has a flower on their flag. The color of their flag is red."
+        question: "What is the chemical symbol for the element gold?",
+        options: ["Go", "Au", "Ag", "Ge"],
+        answer: "Au",
+        clue:"It's a two-letter symbol derived from its Latin name."
     },
     {
         id: 4,
         image:q4,
-        question: "Which of these killers like to basement camp?",
-        options: ["Ghostface", "Trapper", "Trickster", "None"],
-        answer: "Trapper",
-        clue:"This country has a flower on their flag. The color of their flag is red."
+        question: "Who wrote the play \"Romeo and Juliet\"?",
+        options: ["Charles Dickens", "William Shakespeare", "Jane Austen", "F. Scott Fitzgerald"],
+        answer: "William Shakespeare",
+        clue:"He is often regarded as one of the greatest playwrights in history."
     },
     {
         id: 5,
         image:q5,
-        question: "What is ghostface main power in Dead By Daylight? (WAZZZZUPP)",
-        options: ["Midnight shroud", "Stalking", "Staring", "Teleportation"],
-        answer: "Midnight shroud",
-        clue:"This country has a flower on their flag. The color of their flag is red."
+        question: "What technology allows data to be transmitted over short distances using radio waves, commonly used for connecting wireless devices like keyboards and headphones?",
+        options: ["Bluetooth", "Wi-Fi", "Infrared", "NFC"],
+        answer: "Bluetooth",
+        clue:"It's named after a medieval king."
     },
 ]
  

@@ -8,7 +8,8 @@
 }
 
 .App-logos {
-  height: 4vmin;
+  margin-left: 7px;
+  height: 3vmin;
   pointer-events: none;
   animation: rotateY 1s infinite linear;
 }
@@ -69,15 +70,28 @@
 
 ul {
   list-style: none;
-  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 30px;
 }
 
 li {
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  font-size: larger;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   cursor: pointer;
-  padding: 5px;
-  margin: 5px;
+  padding: 10px;
+  margin: 10px;
   border: 1px solid #1f1147;
   border-radius: 5px;
+  flex: 1;
+  width: calc(50% - 10px);
+  height: 50px;
+  background-color:lightskyblue;
+  color: black;
 }
 
 li.selected {
@@ -116,6 +130,7 @@ li.incorrect {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  border-radius: 10px; 
 }
 
 .overlay {
@@ -132,6 +147,7 @@ li.incorrect {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  border-radius: 10px; 
 }
 
 .container:hover .overlay {
@@ -150,7 +166,7 @@ li.incorrect {
   text-align: center;
 }
 
-.App {
+.App2 {
   text-align: center;
 }
 
@@ -165,7 +181,7 @@ li.incorrect {
   }
 }
 
-.App-header {
+.App-header2 {
   background-color: #1f1147;
   min-height: 100vh;
   display: flex;
@@ -174,10 +190,6 @@ li.incorrect {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-flip {
@@ -198,7 +210,19 @@ h1{
   margin-bottom: 50px;
 }
 
-
+.button-home {
+  font-size: inherit; /* Inherit font size from parent (should match h3) */
+  border-radius: 15px; /* Adjust the radius to control the curve */
+  background-color: #6949fd;
+  border-color: #1f1147;
+  box-shadow: 0 9px  #1f1147;
+  color: white ;
+  padding: 15px 20px; /* Add padding for better button appearance */
+  cursor: pointer; /* Add pointer cursor to indicate interactivity */
+  width: 250px;
+  outline: none;
+  margin: 10px;
+}
 
 button {
   font-size: inherit; /* Inherit font size from parent (should match h3) */
@@ -211,8 +235,12 @@ button {
   cursor: pointer; /* Add pointer cursor to indicate interactivity */
   width: 250px;
   outline: none;
+  margin: 10px;
 
 }
+
+
+
 .button:hover {background-color: #40127c}
 
 .button:active {

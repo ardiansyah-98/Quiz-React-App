@@ -6,8 +6,8 @@ class Home extends Component{
     render() {
         const {playNow } = this.props;
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="App2">
+      <header className="App-header2">
         <img src={logo} className="App-logo" alt="logo" />
         <h1> Quiz App </h1>
         <div className="grouped-text">
@@ -15,7 +15,7 @@ class Home extends Component{
           <p className="header-text">Play now and keep learning</p>
         </div>
         <div className="button-container">
-          <button  onClick={playNow}>Play Now</button>
+          <button  className= "button-home" onClick={playNow}>Play Now</button>
         </div>
       </header>
     </div>
