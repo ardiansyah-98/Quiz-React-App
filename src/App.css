@@ -7,10 +7,20 @@
   pointer-events: none;
 }
 
+.App-logos {
+  height: 4vmin;
+  pointer-events: none;
+  animation: rotateY 1s infinite linear;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+@keyframes rotateY {
+  to { transform: rotateY(360deg); }
 }
 
 .App-header {
@@ -42,10 +52,19 @@
 }
 
 .question-container {
-  background-color: #f9f9f9;
+  background-color: #ebe2f6;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  animation-name: quest;
+  animation-duration: 5s;
+  animation-iteration-count: 10;
+}
+@keyframes quest {
+  0%   {background-color: #cfacf7;}
+  25%  {background-color: #c598f8;}
+  50%  {background-color: #c494fb;}
+  100% {background-color: #dbbcff;}
 }
 
 ul {
@@ -57,7 +76,7 @@ li {
   cursor: pointer;
   padding: 5px;
   margin: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #1f1147;
   border-radius: 5px;
 }
 
@@ -84,9 +103,51 @@ li.incorrect {
   color: green;
 }
 
-.image-class {
-  width: 35%;
+.container {
+  position: relative;
+  width: 100%;
   
+}
+
+.image {
+  display: block;
+  width: 50%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 50%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .App {
@@ -144,13 +205,21 @@ button {
   border-radius: 15px; /* Adjust the radius to control the curve */
   background-color: #6949fd;
   border-color: #1f1147;
-  box-shadow: none;
+  box-shadow: 0 9px #b488eb;
   color: white ;
   padding: 15px 20px; /* Add padding for better button appearance */
   cursor: pointer; /* Add pointer cursor to indicate interactivity */
   width: 250px;
-}
+  outline: none;
 
+}
+.button:hover {background-color: #40127c}
+
+.button:active {
+  background-color: #371f61;
+  box-shadow: 0 5px #8385de;
+  transform: translateY(2px);
+}
 .header-text {
   margin-top: 0;
   margin-bottom: 0px; /* Adjust the margin as needed */

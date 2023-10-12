@@ -1,14 +1,20 @@
 import React, {Component} from "react";
 import '../App.css';
- 
+import logo from '../logo.svg';
 class Question extends Component{
     render() {
         const {currentQuestionIndex, handleOptionClick, calculateResultClass, QnA,prevClick,nextClick } = this.props;
  
         return(
             <div>
-            <h2>Question {currentQuestionIndex + 1}</h2>
-            <img src={QnA[currentQuestionIndex].image} alt="My Image" className="image-class"/>
+            <h2>Question {currentQuestionIndex + 1}<img src={logo} className="App-logos" alt="logo" /></h2>
+
+            <div class="container">
+            <img src={QnA[currentQuestionIndex].image} alt="MyImage" class="image"/>
+            <div class="overlay">
+              <div class="text">{QnA[currentQuestionIndex].clue}</div>
+            </div>
+          </div>
             <p>{QnA[currentQuestionIndex].question}</p>
             <ul>
               {QnA[currentQuestionIndex].options.map((option, index) => (
