@@ -11,7 +11,6 @@ class Score extends Component {
                 <h4>Your score: {score}/{currentQuestionIndex}</h4>
                 <div className="button-container">
                     <button onClick={tryagain}>Try again</button>
-                    <button onClick={finish}>Finish</button>
                 </div>
             </div>
 

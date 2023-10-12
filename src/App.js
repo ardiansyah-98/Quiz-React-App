@@ -129,18 +129,19 @@ function App() {
   };            
 
   return (
-    <div className="App">
-      <h1>Quiz App</h1>
-      <div className="question-container">
-      <audio ref={audioRef}></audio>
-       {quizStarted ? (
+   
+       quizStarted ? (
+        <div className="App">
+        <h1>Quiz App</h1>
+        <div className="question-container">
+        <audio ref={audioRef}></audio>{
         quizEnd ? (
                   
                   <Score
                         score={currentScore}
                          className="score"
                          tryagain={resetQuiz}
-                         finish={homeQuiz}
+                         //finish={homeQuiz}
                          currentQuestionIndex={currentQuestionIndex+1}
 
                     />
@@ -153,14 +154,14 @@ function App() {
             prevClick={handlePrevClick}
             nextClick={handleNextClick}
             selectedOption={selectedOption}
+            
           />
-        )
+        )}
+        </div>
+        </div>
       ) : (
         <Home startQuiz={startQuiz} playNow={handlePlayNowClick} />
-      )}
-        
-      </div>
-    </div>
+      )
   );
 }
 

@@ -6,8 +6,8 @@ class Home extends Component{
     render() {
         const {playNow } = this.props;
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="App2">
+      <header className="App-header2">
         <img src={logo} className="App-logo" alt="logo" />
         <h1> Quiz App </h1>
         <div className="grouped-text">
